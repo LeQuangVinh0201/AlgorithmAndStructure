@@ -1,6 +1,7 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class a {
 	public static String a = "a ";
@@ -15,13 +16,30 @@ public class a {
 	
 	
 	public static void main(String[] args) {
-		int a = 3;
-		int b = a;
-		b = b + 1;
-		System.out.println(a); // 3
-		System.out.println(b); // 4
-		ArrayList array = new ArrayList<>();
-		array.add(a);
+		try { 
+			  
+            // Creating object of ArrayList of String of 
+            // size = 3 
+            ArrayList<Integer> numbers 
+                = new ArrayList<Integer>(15); 
+  
+            // adding element to Arrlist numbers 
+            
+
+            
+            for (int i = 1; i < 200; i++) {
+            	numbers.add(i); 
+			}
+  
+  
+            System.out.println( 
+                "ArrayList numbers can now store upto 500 elements.  " + numbers.size()); 
+        } 
+  
+        catch (NullPointerException e) { 
+            System.out.println("Exception thrown : " + e); 
+        }
+
 
 	}
 }
