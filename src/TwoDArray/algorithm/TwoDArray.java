@@ -20,7 +20,7 @@ class Solution {
         int end=matrix.length -1;
         
         //liên tục chia đôi Array vì nó được sắp xếp thứ tự tăng dần
-        while(start <= end){
+        while(start <= end){ // Nên dùng while cho 2 đầu => luôn tối ưu hiệu suất 
             int mid=(start+end)/2; // chia lấy phần nguyên
             if(matrix[mid][0] == target){
                 c = mid;
