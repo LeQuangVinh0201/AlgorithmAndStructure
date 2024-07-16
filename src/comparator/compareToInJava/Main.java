@@ -28,6 +28,10 @@ public class Main {
 		System.out.println("\n Xáo trộn phần tử:");
 		Collections.shuffle(list);
 		list.forEach(System.out::println);
+		
+		System.out.println("\n sorting with lamda : ");
+		list.sort((o1,o2) -> Integer.compare(o1.getAge(), o2.getAge())); //truyền 1 comparator vào bằng lamda
+		list.forEach(System.out::println);
 	}
 
 }
