@@ -13,6 +13,7 @@ public class a {
 		b = 2 + 3;
 		System.out.println(b);
 		System.out.println(b);
+		System.out.println(b);
 	}
 	
 	
