@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 // LG interview
 public class RealProblem {
@@ -22,17 +23,19 @@ public class RealProblem {
 		list.add(new Student("vi", "ha noi", 45));
 		list.add(new Student("thuy", "ha noi", 27));
 		
-		HashMap<String, List<Student>> hashMap = new HashMap<>();
+		Map<String, List<Student>> hashMap = new HashMap<>();
 		
-		for (Student student : list) {
-			if(hashMap.containsKey(student.getAddress())) {
-				hashMap.get(student.getAddress()).add(student);
-			}else{
-				List<Student> subList = new ArrayList<>();
-				subList.add(student);
-				hashMap.put(student.getAddress(), subList);
-			};
-		};
+		hashMap = list.stream().collect(Collectors.groupingBy(Student::getAddress)); // cách này lọc các List<Student> có chung địa chỉ nhanh hơn cách dưới
+		
+//		for (Student student : list) {
+//			if(hashMap.containsKey(student.getAddress())) {
+//				hashMap.get(student.getAddress()).add(student);
+//			}else{
+//				List<Student> subList = new ArrayList<>();
+//				subList.add(student);
+//				hashMap.put(student.getAddress(), subList);
+//			};
+//		};
 		
 		List<List<Student>> resultList = new ArrayList<>();
 		for (Map.Entry<String, List<Student>> entry : hashMap.entrySet()) {
