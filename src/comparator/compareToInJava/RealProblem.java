@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 // LG interview
+// compare dành cho kiểu Object
 public class RealProblem {
 	public static void main(String[] args) {
 		long startTime = System.currentTimeMillis();
@@ -37,6 +38,7 @@ public class RealProblem {
 //			};
 //		};
 		
+		// nên dùng cách này cho Object => ngắn gọn dễ hiểu
 		List<List<Student>> resultList = new ArrayList<>();
 		for (Map.Entry<String, List<Student>> entry : hashMap.entrySet()) {
 			entry.getValue().sort(Comparator.comparing(Student::getName).thenComparingInt(Student::getAge));

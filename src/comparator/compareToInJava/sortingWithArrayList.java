@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// compare dành cho primtive 
 public class sortingWithArrayList {
 	public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
