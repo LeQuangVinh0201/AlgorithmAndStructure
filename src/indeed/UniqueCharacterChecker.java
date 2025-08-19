@@ -1,7 +1,7 @@
 package indeed;
 
 public class UniqueCharacterChecker {
-	public boolean hasAllUniqueChars(String s) {
+	public static boolean hasAllUniqueChars(String s) {
 		if(s.length() == 0) return false;
 		
 		int[] countArr = new int[26];
@@ -14,5 +14,10 @@ public class UniqueCharacterChecker {
 		}
 		
 		return true;
+	}
+	
+	public static void main(String[] args) {
+		boolean check = hasAllUniqueChars("abcdy");
+		System.out.println(check);
 	}
 }

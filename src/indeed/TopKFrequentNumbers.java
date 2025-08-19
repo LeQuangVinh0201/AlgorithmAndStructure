@@ -8,7 +8,7 @@ import java.util.TreeSet;
 
 public class TopKFrequentNumbers {
 	@SuppressWarnings("unchecked")
-	public List<Integer> topKFrequent(int[] nums, int k){
+	public static List<Integer> topKFrequent(int[] nums, int k){
 		List<Integer> resultArr = new ArrayList<>();
 		TreeSet<Integer>[] freq = new TreeSet[nums.length + 1];
 		
@@ -30,7 +30,7 @@ public class TopKFrequentNumbers {
 		
 		int index = 0;
 		// loop high -> low frequency
-		for (int i = freq.length - 1; i > 0 && index < k ; i++) {
+		for (int i = freq.length - 1; i > 0 && index < k ; i--) {
 			for(int n : freq[i]) {
 				resultArr.add(n);
 				index++;
@@ -44,5 +44,10 @@ public class TopKFrequentNumbers {
 		
 		// time complexity O(n)
 		// space complexity O(n)
+	}
+	
+	public static void main(String[] args) {
+		List<Integer> list = topKFrequent(new int[] {1,1,1,1,5,5,6,6,6,6,7,8,9,4,3,3,3,3}, 2);
+		System.out.println(list);
 	}
 }

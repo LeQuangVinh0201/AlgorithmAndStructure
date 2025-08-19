@@ -3,7 +3,7 @@ package indeed;
 import java.util.Arrays;
 
 public class AnagramChecker {
-	public boolean areAnagrams(String s1, String s2) {
+	public static boolean areAnagrams(String s1, String s2) {
 		if(s1.length() != s2.length()) {
 			return false;
 		}
@@ -20,5 +20,10 @@ public class AnagramChecker {
 		
 		return true;
 		
+	}
+	
+	public static void main(String[] args) {
+		boolean check = areAnagrams("listennn", "nnlisten");
+		System.out.println(check);
 	}
 }
