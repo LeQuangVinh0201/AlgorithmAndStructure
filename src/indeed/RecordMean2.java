@@ -2,6 +2,7 @@ package indeed;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class RecordMean2 {
 	
@@ -32,12 +33,16 @@ public class RecordMean2 {
     	this.count = 0;
     }
      
+    //private final ReentrantLock lock = new ReentrantLock(); // cho nhiều request đồng thời
+    //private final LongAdder sum = new LongAdder(); phương án này dùng partition và LongAdder từ java 8 để xử lý tránh high concurrency.
+    //private LongAdder sum = new LongAdder();
+    //private LongAdder count = new LongAdder();
     
     long now(){
         return System.currentTimeMillis();
     };
     
-    public void record(int value) {
+    public synchronized void record(int value) {
         delElementExpired();
         
         Record record = new Record(value, now());
@@ -46,12 +51,13 @@ public class RecordMean2 {
         sum += value;
     }
 
-    public double mean() {
+    public synchronized double mean() {
         if(recordList.isEmpty()) return 0.0;
         
         delElementExpired();
         
-        double avg = sum / count;
+        double avg = 0.0;
+        if(count > 0) avg = (double) sum / count;
         return avg;
     }
     

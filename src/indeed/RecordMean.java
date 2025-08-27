@@ -68,8 +68,7 @@ public class RecordMean {
         
         delElementExpired();
         
-        double avg = recordList.stream().mapToLong(Record::getValue).average().orElse(0.0);
-        return avg;
+        return recordList.stream().mapToLong(Record::getValue).average().orElse(0.0);
     }
     
     public void delElementExpired(){

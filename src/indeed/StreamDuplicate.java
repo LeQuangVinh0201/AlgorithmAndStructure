@@ -98,5 +98,5 @@ public class StreamDuplicate {
         System.out.println(res); // [0, 1, 4, 5, 8, 9]
 
     }
-
+    
 }
