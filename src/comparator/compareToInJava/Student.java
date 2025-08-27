@@ -1,6 +1,6 @@
 package comparator.compareToInJava;
 
-public class Student implements Comparable<Student>{
+public class Student{
 	private String name;
 	private String address;
 	
@@ -37,10 +37,10 @@ public class Student implements Comparable<Student>{
 	}
 	
 	//compare age
-	@Override
-	public int compareTo(Student o) {
-		return Integer.compare(this.getAge(), o.getAge());
-	}
+//	@Override
+//	public int compareTo(Student o) {
+//		return Integer.compare(this.getAge(), o.getAge());
+//	}
 	
 	//compare name
 //	@Override

@@ -50,7 +50,12 @@ public class mainSortingMultipleFieldArrayList {
 		List<Student> sortedList = list.stream().sorted(Comparator.comparing(Student::getName).thenComparingInt(Student::getAge)) 
 												.collect(Collectors.toList());
 		sortedList.forEach(System.out::println);
-		System.out.println("----------------------");
+		System.out.println("---------------------- 666");
+		
+		Comparator<Student> sortByNameAsc = Comparator.comparing(Student::getName);
+		Comparator<Student> sortByAgeDesc = Comparator.comparing(Student::getAge).reversed();
+		list.sort(sortByNameAsc.thenComparing(sortByAgeDesc));
+		list.forEach(System.out::println);
 		
 	}
 }
