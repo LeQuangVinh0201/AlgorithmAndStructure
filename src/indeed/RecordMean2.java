@@ -2,6 +2,7 @@ package indeed;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.concurrent.atomic.LongAdder;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class RecordMean2 {
@@ -33,8 +34,8 @@ public class RecordMean2 {
     	this.count = 0;
     }
      
-    //private final ReentrantLock lock = new ReentrantLock(); // cho nhiều request đồng thời
-    //private final LongAdder sum = new LongAdder(); phương án này dùng partition và LongAdder từ java 8 để xử lý tránh high concurrency.
+//    private final ReentrantLock lock = new ReentrantLock(); // cho nhiều request đồng thời
+//    private final LongAdder sum1 = new LongAdder();// phương án này dùng partition và LongAdder từ java 8 để xử lý tránh high concurrency.
     //private LongAdder sum = new LongAdder();
     //private LongAdder count = new LongAdder();
     
@@ -72,19 +73,25 @@ public class RecordMean2 {
     }
 
 
-	public static void main(String[] args) throws InterruptedException {
-		RecordMean2 sol = new RecordMean2(5*1000);
-        sol.record(5); // t= 0
-        Thread.sleep(5000);
-        sol.record(2); // t=5
-        Thread.sleep(2000);
-        sol.record(4); // t =7
-        Thread.sleep(4000);
-        sol.record(6); // t =11
-//        Thread.sleep(2000);
-//        sol.record(8);
+	public static void main(String[] args) {
+        try {
+        	RecordMean2 sol = new RecordMean2(5*1000);
+        	sol.record(5); // t= 0
+			Thread.sleep(5000);
+			sol.record(2); // t=5
+	        Thread.sleep(2000);
+	        sol.record(4); // t =7
+	        Thread.sleep(4000);
+	        sol.record(6); // t =11
+//	        Thread.sleep(2000);
+//	        sol.record(8);
 
-        System.out.println(sol.mean()); // ~10.0
+	        System.out.println(sol.mean()); // ~10.0
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
 	}
 	
 	// time complexity là O(1)

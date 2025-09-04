@@ -23,7 +23,7 @@ public class RecordMean {
 //	    long now();
 //
 //	    public void record(int value) {
-//	        // Candidate TODO
+//	        // Candidate TODOstat
 //	    }
 //
 //	    public double mean() {
